@@ -341,7 +341,7 @@
 
     function onexecuteOperatorsGetListByCompanyName(parameters, properties, configuration) {
       return new Promise((resolve, reject) => {
-        var urlValue = configuration["ServiceURL"] + 'Companies/a?apikey=';
+        var urlValue = configuration["ServiceURL"] + 'Companies';
         var xhr = new XMLHttpRequest();
 
         xhr.onreadystatechange = function () {
@@ -429,7 +429,8 @@
         };
 
         if (typeof parameters["APIKey"] !== "string") throw new Error("parameters[\"APIKey\"] is not of type string");
-        xhr.open("GET", urlValue + encodeURIComponent(parameters["APIKey"]));
+        if (typeof parameters["CompanyName"] !== "string") throw new Error("parameters[\"CompanyName\"] is not of type string");
+        xhr.open("GET", urlValue + "/" + encodeURIComponent(parameters["CompanyName"]) + "?apikey=" + encodeURIComponent(parameters["APIKey"]));
         xhr.send();
       });
     }
