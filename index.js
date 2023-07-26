@@ -22,17 +22,9 @@
             displayName: "Operators",
             description: "Gets Operator Data",
             properties: {
-              "StartDate": {
-                displayName: "Start Date",
-                type: "string"
-              },
-              "EndDate": {
-                displayName: "End Date",
-                type: "string"
-              },
               "Disclaimer": {
                 displayName: "Disclaimer",
-                type: "number"
+                type: "string"
               },
               "RequestDateTime": {
                 displayName: "Request DateTime",
