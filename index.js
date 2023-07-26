@@ -36,7 +36,7 @@
               },
               "RequestDateTime": {
                 displayName: "Request DateTime",
-                type: "number"
+                type: "string"
               },
               "ErrorCode": {
                 displayName: "Error Code",
