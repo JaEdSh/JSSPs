@@ -339,11 +339,75 @@
         xhr.onreadystatechange = function () {
           try {
             if (xhr.readyState !== 4) return;
-            if (xhr.status !== 200) throw new Error("Failed with status " + xhr.status);
             var obj = JSON.parse(xhr.responseText);
             postResult(obj.map(x => {
+              var _x$TravisData$Contrac, _x$TravisData$Contrac2, _x$TravisData$Contrac3, _x$TravisData$Contrac4, _x$TravisData$Contrac5, _x$TravisData$Contrac6, _x$TravisData$Contrac7, _x$TravisData$Contrac8, _x$TravisData$Contrac9, _x$TravisData$Finance, _x$TravisData$Finance2, _x$TravisData$Finance3, _x$TravisData$Finance4, _x$TravisData$Finance5, _x$TravisData$Finance6, _x$TravisData$Finance7, _x$TravisData$Finance8, _x$TravisData$Finance9, _x$TravisData$PermitC, _x$TravisData$PermitC2, _x$TravisData$PermitC3, _x$TravisData$PermitC4, _x$TravisData$PermitC5, _x$TravisData$PermitC6, _x$TravisData$PermitC7, _x$TravisData$PermitC8, _x$TravisData$PermitC9, _x$TravisData$Vehicle, _x$TravisData$Vehicle2, _x$TravisData$Vehicle3, _x$TravisData$Vehicle4, _x$TravisData$Vehicle5, _x$TravisData$Vehicle6, _x$TravisData$Vehicle7, _x$TravisData$Vehicle8, _x$TravisData$Vehicle9, _x$TravisData$Vehicle10, _x$TravisData$Vehicle11, _x$TravisData$Vehicle12, _x$TravisData$Vehicle13, _x$TravisData$Vehicle14;
+
               return {
-                "RequestDateTime": x.RequestDateTime
+                "RequestDateTime": x.RequestDateTime,
+                "ErrorCode": x.ErrorCode,
+                "ErrorMessage": x.ErrorMessage,
+                "RequestRecords": x.RequestRecords,
+                "AccountID": x.TravisData.AccountID,
+                "OperatorTypeName": x.TravisData.OperatorTypeName,
+                "OperatorTypeID": x.TravisData.OperatorTypeID,
+                "ServiceTypeID": x.TravisData.ServiceTypeID,
+                "OpAuthName": x.TravisData.OpAuthName,
+                "OpAuthID": x.TravisData.OpAuthID,
+                "LegalName": x.TravisData.LegalName,
+                "OperatoringName": x.TravisData.OperatoringName,
+                "Address1": x.TravisData.Address1,
+                "Address2": x.TravisData.Address2,
+                "City": x.TravisData.City,
+                "State": x.TravisData.State,
+                "Zip": x.TravisData.Zip,
+                "Phone1": x.TravisData.Phone1,
+                "EmailAddress": x.TravisData.EmailAddress,
+                "LAXAgreeEndDate": x.TravisData.LAXAgreeEndDate,
+                "OpAuthNumber": x.TravisData.OpAuthNumber,
+                "LAXAgreeNumber": x.TravisData.LAXAgreeNumber,
+                "SuspendedFlag": x.TravisData.SuspendedFlag,
+                "ConContactContactID": (_x$TravisData$Contrac = x.TravisData.ContractContact) === null || _x$TravisData$Contrac === void 0 ? void 0 : _x$TravisData$Contrac.ContactID,
+                "ConContactFirstName": (_x$TravisData$Contrac2 = x.TravisData.ContractContact) === null || _x$TravisData$Contrac2 === void 0 ? void 0 : _x$TravisData$Contrac2.FirstName,
+                "ConContactLastName": (_x$TravisData$Contrac3 = x.TravisData.ContractContact) === null || _x$TravisData$Contrac3 === void 0 ? void 0 : _x$TravisData$Contrac3.LastName,
+                "ConContactAddress": (_x$TravisData$Contrac4 = x.TravisData.ContractContact) === null || _x$TravisData$Contrac4 === void 0 ? void 0 : _x$TravisData$Contrac4.Address1,
+                "ConContactContactCity": (_x$TravisData$Contrac5 = x.TravisData.ContractContact) === null || _x$TravisData$Contrac5 === void 0 ? void 0 : _x$TravisData$Contrac5.City,
+                "ConContactContactState": (_x$TravisData$Contrac6 = x.TravisData.ContractContact) === null || _x$TravisData$Contrac6 === void 0 ? void 0 : _x$TravisData$Contrac6.State,
+                "ConContactContactZip": (_x$TravisData$Contrac7 = x.TravisData.ContractContact) === null || _x$TravisData$Contrac7 === void 0 ? void 0 : _x$TravisData$Contrac7.Zip,
+                "ConContactContactPhone": (_x$TravisData$Contrac8 = x.TravisData.ContractContact) === null || _x$TravisData$Contrac8 === void 0 ? void 0 : _x$TravisData$Contrac8.Phone,
+                "ConContactContactEmail": (_x$TravisData$Contrac9 = x.TravisData.ContractContact) === null || _x$TravisData$Contrac9 === void 0 ? void 0 : _x$TravisData$Contrac9.Email,
+                "FinContactContactID": (_x$TravisData$Finance = x.TravisData.FinanceContact) === null || _x$TravisData$Finance === void 0 ? void 0 : _x$TravisData$Finance.ContactID,
+                "FinContactFirstName": (_x$TravisData$Finance2 = x.TravisData.FinanceContact) === null || _x$TravisData$Finance2 === void 0 ? void 0 : _x$TravisData$Finance2.FirstName,
+                "FinContactLastName": (_x$TravisData$Finance3 = x.TravisData.FinanceContact) === null || _x$TravisData$Finance3 === void 0 ? void 0 : _x$TravisData$Finance3.LastName,
+                "FinContactAddress": (_x$TravisData$Finance4 = x.TravisData.FinanceContact) === null || _x$TravisData$Finance4 === void 0 ? void 0 : _x$TravisData$Finance4.Address1,
+                "FinContactContactCity": (_x$TravisData$Finance5 = x.TravisData.FinanceContact) === null || _x$TravisData$Finance5 === void 0 ? void 0 : _x$TravisData$Finance5.City,
+                "FinContactContactState": (_x$TravisData$Finance6 = x.TravisData.FinanceContact) === null || _x$TravisData$Finance6 === void 0 ? void 0 : _x$TravisData$Finance6.State,
+                "FinContactContactZip": (_x$TravisData$Finance7 = x.TravisData.FinanceContact) === null || _x$TravisData$Finance7 === void 0 ? void 0 : _x$TravisData$Finance7.Zip,
+                "FinContactContactPhone": (_x$TravisData$Finance8 = x.TravisData.FinanceContact) === null || _x$TravisData$Finance8 === void 0 ? void 0 : _x$TravisData$Finance8.Phone,
+                "FinContactContactEmail": (_x$TravisData$Finance9 = x.TravisData.FinanceContact) === null || _x$TravisData$Finance9 === void 0 ? void 0 : _x$TravisData$Finance9.Email,
+                "PerContactContactID": (_x$TravisData$PermitC = x.TravisData.PermitContact) === null || _x$TravisData$PermitC === void 0 ? void 0 : _x$TravisData$PermitC.ContactID,
+                "PerContactFirstName": (_x$TravisData$PermitC2 = x.TravisData.PermitContact) === null || _x$TravisData$PermitC2 === void 0 ? void 0 : _x$TravisData$PermitC2.FirstName,
+                "PerContactLastName": (_x$TravisData$PermitC3 = x.TravisData.PermitContact) === null || _x$TravisData$PermitC3 === void 0 ? void 0 : _x$TravisData$PermitC3.LastName,
+                "PerContactAddress": (_x$TravisData$PermitC4 = x.TravisData.PermitContact) === null || _x$TravisData$PermitC4 === void 0 ? void 0 : _x$TravisData$PermitC4.Address1,
+                "PerContactContactCity": (_x$TravisData$PermitC5 = x.TravisData.PermitContact) === null || _x$TravisData$PermitC5 === void 0 ? void 0 : _x$TravisData$PermitC5.City,
+                "PerContactContactState": (_x$TravisData$PermitC6 = x.TravisData.PermitContact) === null || _x$TravisData$PermitC6 === void 0 ? void 0 : _x$TravisData$PermitC6.State,
+                "PerContactContactZip": (_x$TravisData$PermitC7 = x.TravisData.PermitContact) === null || _x$TravisData$PermitC7 === void 0 ? void 0 : _x$TravisData$PermitC7.Zip,
+                "PerContactContactPhone": (_x$TravisData$PermitC8 = x.TravisData.PermitContact) === null || _x$TravisData$PermitC8 === void 0 ? void 0 : _x$TravisData$PermitC8.Phone,
+                "PerContactContactEmail": (_x$TravisData$PermitC9 = x.TravisData.PermitContact) === null || _x$TravisData$PermitC9 === void 0 ? void 0 : _x$TravisData$PermitC9.Email,
+                "VehicleId": (_x$TravisData$Vehicle = x.TravisData.Vehicles) === null || _x$TravisData$Vehicle === void 0 ? void 0 : _x$TravisData$Vehicle.VehicleId,
+                "FleetNumber": (_x$TravisData$Vehicle2 = x.TravisData.Vehicles) === null || _x$TravisData$Vehicle2 === void 0 ? void 0 : _x$TravisData$Vehicle2.FleetNumber,
+                "Year": (_x$TravisData$Vehicle3 = x.TravisData.Vehicles) === null || _x$TravisData$Vehicle3 === void 0 ? void 0 : _x$TravisData$Vehicle3.Year,
+                "Make": (_x$TravisData$Vehicle4 = x.TravisData.Vehicles) === null || _x$TravisData$Vehicle4 === void 0 ? void 0 : _x$TravisData$Vehicle4.Make,
+                "Model": (_x$TravisData$Vehicle5 = x.TravisData.Vehicles) === null || _x$TravisData$Vehicle5 === void 0 ? void 0 : _x$TravisData$Vehicle5.Model,
+                "Color": (_x$TravisData$Vehicle6 = x.TravisData.Vehicles) === null || _x$TravisData$Vehicle6 === void 0 ? void 0 : _x$TravisData$Vehicle6.Color,
+                "VIN": (_x$TravisData$Vehicle7 = x.TravisData.Vehicles) === null || _x$TravisData$Vehicle7 === void 0 ? void 0 : _x$TravisData$Vehicle7.VIN,
+                "PassengerCapacity": (_x$TravisData$Vehicle8 = x.TravisData.Vehicles) === null || _x$TravisData$Vehicle8 === void 0 ? void 0 : _x$TravisData$Vehicle8.PassengerCapacity,
+                "FuelTypeID": (_x$TravisData$Vehicle9 = x.TravisData.Vehicles) === null || _x$TravisData$Vehicle9 === void 0 ? void 0 : _x$TravisData$Vehicle9.FuelTypeID,
+                "FuelTypeName": (_x$TravisData$Vehicle10 = x.TravisData.Vehicles) === null || _x$TravisData$Vehicle10 === void 0 ? void 0 : _x$TravisData$Vehicle10.FuelTypeName,
+                "LicensePlate": (_x$TravisData$Vehicle11 = x.TravisData.Vehicles) === null || _x$TravisData$Vehicle11 === void 0 ? void 0 : _x$TravisData$Vehicle11.LicensePlate,
+                "Weight": (_x$TravisData$Vehicle12 = x.TravisData.Vehicles) === null || _x$TravisData$Vehicle12 === void 0 ? void 0 : _x$TravisData$Vehicle12.Weight,
+                "Transponder": (_x$TravisData$Vehicle13 = x.TravisData.Vehicles) === null || _x$TravisData$Vehicle13 === void 0 ? void 0 : _x$TravisData$Vehicle13.Transponder,
+                "DecalNumber": (_x$TravisData$Vehicle14 = x.TravisData.Vehicles) === null || _x$TravisData$Vehicle14 === void 0 ? void 0 : _x$TravisData$Vehicle14.DecalNumber
               };
             }));
             resolve();
@@ -354,7 +418,7 @@
 
         if (typeof parameters["APIKey"] !== "string") throw new Error("parameters[\"APIKey\"] is not of type string");
         if (typeof parameters["CompanyName"] !== "string") throw new Error("parameters[\"CompanyName\"] is not of type string");
-        xhr.open("GET", urlValue + +"ca?apikey=" + encodeURIComponent(parameters["APIKey"]));
+        xhr.open("GET", urlValue + encodeURIComponent(parameters["CompanyName"]) + "?apikey=" + encodeURIComponent(parameters["APIKey"]));
         xhr.send();
       });
     }
