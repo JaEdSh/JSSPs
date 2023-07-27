@@ -339,11 +339,13 @@
         xhr.onreadystatechange = function () {
           try {
             if (xhr.readyState !== 4) return;
+            if (xhr.status !== 200) throw new Error("Failed with status " + xhr.status);
             var obj = JSON.parse(xhr.responseText);
             postResult(obj.map(x => {
               var _x$TravisData$Contrac, _x$TravisData$Contrac2, _x$TravisData$Contrac3, _x$TravisData$Contrac4, _x$TravisData$Contrac5, _x$TravisData$Contrac6, _x$TravisData$Contrac7, _x$TravisData$Contrac8, _x$TravisData$Contrac9, _x$TravisData$Finance, _x$TravisData$Finance2, _x$TravisData$Finance3, _x$TravisData$Finance4, _x$TravisData$Finance5, _x$TravisData$Finance6, _x$TravisData$Finance7, _x$TravisData$Finance8, _x$TravisData$Finance9, _x$TravisData$PermitC, _x$TravisData$PermitC2, _x$TravisData$PermitC3, _x$TravisData$PermitC4, _x$TravisData$PermitC5, _x$TravisData$PermitC6, _x$TravisData$PermitC7, _x$TravisData$PermitC8, _x$TravisData$PermitC9, _x$TravisData$Vehicle, _x$TravisData$Vehicle2, _x$TravisData$Vehicle3, _x$TravisData$Vehicle4, _x$TravisData$Vehicle5, _x$TravisData$Vehicle6, _x$TravisData$Vehicle7, _x$TravisData$Vehicle8, _x$TravisData$Vehicle9, _x$TravisData$Vehicle10, _x$TravisData$Vehicle11, _x$TravisData$Vehicle12, _x$TravisData$Vehicle13, _x$TravisData$Vehicle14;
 
               return {
+                "Disclaimer": x.Disclaimer,
                 "RequestDateTime": x.RequestDateTime,
                 "ErrorCode": x.ErrorCode,
                 "ErrorMessage": x.ErrorMessage,
