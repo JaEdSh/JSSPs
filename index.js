@@ -358,17 +358,12 @@
 
         xhr.onreadystatechange = function () {
           try {
-            var _obj$TravisData$Contr, _obj$TravisData$Finan, _obj$TravisData$Permi, _obj$TravisData$Vehic;
-
             if (xhr.readyState !== 4) return;
             if (xhr.status !== 200) throw new Error("Failed with status " + xhr.status);
             var obj = JSON.parse(xhr.responseText);
-            var vehicleCount = Object.keys(obj.TravisData.Vehicles).length;
-            var conContactFull = (_obj$TravisData$Contr = obj.TravisData.ContractContact) === null || _obj$TravisData$Contr === void 0 ? void 0 : _obj$TravisData$Contr.ToString();
-            var finContactFull = (_obj$TravisData$Finan = obj.TravisData.FinanceContact) === null || _obj$TravisData$Finan === void 0 ? void 0 : _obj$TravisData$Finan.ToString();
-            var perContactFull = (_obj$TravisData$Permi = obj.TravisData.PermitContact) === null || _obj$TravisData$Permi === void 0 ? void 0 : _obj$TravisData$Permi.ToString();
-            var vehFull = (_obj$TravisData$Vehic = obj.TravisData.Vehicles) === null || _obj$TravisData$Vehic === void 0 ? void 0 : _obj$TravisData$Vehic.ToString();
             postResult(obj.map(x => {
+              var _x$TravisData$Contrac, _x$TravisData$Finance, _x$TravisData$PermitC, _x$TravisData$Vehicle, _x$TravisData$Vehicle2;
+
               return {
                 "OperatorTypeName": x.TravisData.OperatorTypeName,
                 "OperatorTypeID": x.TravisData.OperatorTypeID,
@@ -388,11 +383,11 @@
                 "OpAuthNumber": x.TravisData.OpAuthNumber,
                 "LAXAgreeNumber": x.TravisData.LAXAgreeNumber,
                 "SuspendedFlag": x.TravisData.SuspendedFlag,
-                "ContractContactFull": conContactFull,
-                "FinanceContactFull": finContactFull,
-                "PermitContactFull": perContactFull,
-                "VehiclesCount": vehicleCount,
-                "VehiclesFull": vehFull
+                "ContractContactFull": (_x$TravisData$Contrac = x.TravisData.ContractContact) === null || _x$TravisData$Contrac === void 0 ? void 0 : _x$TravisData$Contrac.ToString(),
+                "FinanceContactFull": (_x$TravisData$Finance = x.TravisData.FinanceContact) === null || _x$TravisData$Finance === void 0 ? void 0 : _x$TravisData$Finance.ToString(),
+                "PermitContactFull": (_x$TravisData$PermitC = x.TravisData.PermitContact) === null || _x$TravisData$PermitC === void 0 ? void 0 : _x$TravisData$PermitC.ToString(),
+                "VehiclesCount": (_x$TravisData$Vehicle = x.TravisData.Vehicles) === null || _x$TravisData$Vehicle === void 0 ? void 0 : _x$TravisData$Vehicle.length,
+                "VehiclesFull": (_x$TravisData$Vehicle2 = x.TravisData.Vehicles) === null || _x$TravisData$Vehicle2 === void 0 ? void 0 : _x$TravisData$Vehicle2.ToString()
               };
             }));
             resolve();
