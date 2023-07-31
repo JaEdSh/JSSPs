@@ -358,11 +358,12 @@
 
         xhr.onreadystatechange = function () {
           try {
+            var _obj$TravisData;
+
             if (xhr.readyState !== 4) return;
             if (xhr.status !== 200) throw new Error("Failed with status " + xhr.status);
             var obj = JSON.parse(xhr.responseText);
-            var travisData = obj.TravisData;
-            postResult(travisData.map(x => {
+            postResult((_obj$TravisData = obj.TravisData) === null || _obj$TravisData === void 0 ? void 0 : _obj$TravisData.map(x => {
               var _x$ContractContact, _x$FinanceContact, _x$PermitContact, _x$Vehicles, _x$Vehicles2;
 
               return {
