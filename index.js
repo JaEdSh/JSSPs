@@ -22,6 +22,14 @@
             displayName: "Operators",
             description: "Gets Operator Data",
             properties: {
+              "APIKey": {
+                displayName: "API Key",
+                type: "string"
+              },
+              "CompanyName": {
+                displayName: "Company Name",
+                type: "string"
+              },
               "Disclaimer": {
                 displayName: "Disclaimer",
                 type: "string"
@@ -307,17 +315,8 @@
               "getListByCompanyName": {
                 displayName: "Get Operator List",
                 type: "list",
-                inputs: [],
-                parameters: {
-                  "APIKey": {
-                    displayName: "API Key",
-                    type: "string"
-                  },
-                  "CompanyName": {
-                    displayName: "Company Name",
-                    type: "string"
-                  }
-                },
+                inputs: ["APIKey", "CompanyName"],
+                requiredInputs: ["APIKey", "CompanyName"],
                 outputs: ["AccountID", "OperatorTypeName", "OperatorTypeID", "ServiceTypeID", "OpAuthName", "OpAuthID", "LegalName", "OperatoringName", "Address1", "Address2", "City", "State", "Zip", "Phone1", "EmailAddress", "LAXAgreeEndDate", "OpAuthNumber", "LAXAgreeNumber", "SuspendedFlag", "ContractContactFull", "FinanceContactFull", "PermitContactFull", "VehiclesCount", "VehiclesFull"]
               }
             }
@@ -395,9 +394,9 @@
           }
         };
 
-        if (typeof parameters["APIKey"] !== "string") throw new Error("parameters[\"APIKey\"] is not of type string");
-        if (typeof parameters["CompanyName"] !== "string") throw new Error("parameters[\"CompanyName\"] is not of type string");
-        xhr.open("GET", urlValue + encodeURIComponent(parameters["CompanyName"]) + "?apikey=" + encodeURIComponent(parameters["APIKey"]));
+        if (typeof properties["APIKey"] !== "string") throw new Error("properties[\"APIKey\"] is not of type string");
+        if (typeof properties["CompanyName"] !== "string") throw new Error("properties[\"CompanyName\"] is not of type string");
+        xhr.open("GET", urlValue + encodeURIComponent(properties["CompanyName"]) + "?apikey=" + encodeURIComponent(properties["APIKey"]));
         xhr.send();
       });
     }
