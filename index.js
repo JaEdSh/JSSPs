@@ -363,8 +363,6 @@
             if (xhr.status !== 200) throw new Error("Failed with status " + xhr.status);
             var obj = JSON.parse(xhr.responseText);
             postResult((_obj$TravisData = obj.TravisData) === null || _obj$TravisData === void 0 ? void 0 : _obj$TravisData.map(x => {
-              var _x$Vehicles;
-
               return {
                 "AccountID": x.AccountID,
                 "OperatorTypeName": x.OperatorTypeName,
@@ -384,8 +382,7 @@
                 "LAXAgreeEndDate": x.LAXAgreeEndDate,
                 "OpAuthNumber": x.OpAuthNumber,
                 "LAXAgreeNumber": x.LAXAgreeNumber,
-                "SuspendedFlag": x.SuspendedFlag,
-                "VehiclesCount": (_x$Vehicles = x.Vehicles) === null || _x$Vehicles === void 0 ? void 0 : _x$Vehicles.length
+                "SuspendedFlag": x.SuspendedFlag
               };
             }));
             resolve();
