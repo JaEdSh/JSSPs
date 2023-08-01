@@ -153,40 +153,19 @@
 
         xhr.onreadystatechange = function () {
           try {
-            var _obj$0$TravisData;
-
             if (xhr.readyState !== 4) return;
             if (xhr.status !== 200) throw new Error("Failed with status " + xhr.status);
             var obj = JSON.parse(xhr.responseText);
-            var objData = (_obj$0$TravisData = obj[0].TravisData) === null || _obj$0$TravisData === void 0 ? void 0 : _obj$0$TravisData.map(x => {
+            var objData = obj.map(x => {
               return {
-                "AccountID": x.AccountID,
-                "OperatorTypeName": x.OperatorTypeName,
-                "OperatorTypeID": x.OperatorTypeID,
-                "ServiceTypeID": x.ServiceTypeID,
-                "OpAuthName": x.OpAuthName,
-                "OpAuthID": x.OpAuthID,
-                "LegalName": x.LegalName,
-                "OperatoringName": x.OperatoringName,
-                "Address1": x.Address1,
-                "Address2": x.Address2,
-                "City": x.City,
-                "State": x.State,
-                "Zip": x.Zip,
-                "Phone1": x.Phone1,
-                "EmailAddress": x.EmailAddress,
-                "LAXAgreeEndDate": x.LAXAgreeEndDate,
-                "OpAuthNumber": x.OpAuthNumber,
-                "LAXAgreeNumber": x.LAXAgreeNumber,
-                "SuspendedFlag": x.SuspendedFlag
+                "AccountID": x.RequestRecords
               };
             });
+            postResult(objData);
             resolve();
           } catch (e) {
             reject(e);
           }
-
-          postResult(objData);
         };
 
         if (typeof properties["APIKey"] !== "string") throw new Error("properties[\"APIKey\"] is not of type string");
