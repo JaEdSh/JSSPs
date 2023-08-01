@@ -166,7 +166,7 @@
                 "OpAuthName": x.OpAuthName,
                 "OpAuthID": x.OpAuthID,
                 "LegalName": x.LegalName,
-                "OperatoringName": x.OperatoringName,
+                "OperatoringName": x.OperatingName,
                 "Address1": x.Address1,
                 "Address2": x.Address2,
                 "City": x.City
