@@ -158,8 +158,6 @@
             var obj = JSON.parse(xhr.responseText);
             let objData = [];
             objData = obj[0].TravisData.map(x => {
-              var _x$Vehicles;
-
               return {
                 "AccountID": x.AccountID,
                 "OperatorTypeName": x.OperatorTypeName,
@@ -180,7 +178,7 @@
                 "OpAuthNumber": x.OpAuthNumber,
                 "LAXAgreeNumber": x.LAXAgreeNumber,
                 "SuspendedFlag": x.SuspendedFlag,
-                "VehiclesCount": (_x$Vehicles = x.Vehicles) === null || _x$Vehicles === void 0 ? void 0 : _x$Vehicles.length
+                "ContractContactFull": x.ContractContact.toString()
               };
             });
             postResult(objData);
