@@ -180,11 +180,7 @@
                 "OpAuthNumber": x.OpAuthNumber,
                 "LAXAgreeNumber": x.LAXAgreeNumber,
                 "SuspendedFlag": x.SuspendedFlag,
-                "ContractContactFull": x.ContractContact,
-                "FinanceContactFull": x.FinanceContact,
-                "PermitContactFull": x.PermitContact,
-                "VehiclesCount": (_x$Vehicles = x.Vehicles) === null || _x$Vehicles === void 0 ? void 0 : _x$Vehicles.length,
-                "VehiclesFull": x.Vehicles
+                "VehiclesCount": (_x$Vehicles = x.Vehicles) === null || _x$Vehicles === void 0 ? void 0 : _x$Vehicles.length
               };
             });
             postResult(objData);
