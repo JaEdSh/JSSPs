@@ -183,7 +183,7 @@
                 "ContractContactFull": x.ContractContact,
                 "FinanceContactFull": x.FinanceContact,
                 "PermitContactFull": x.PermitContact,
-                "VehiclesCount": (_x$Vehicles = x.Vehicles) === null || _x$Vehicles === void 0 ? void 0 : _x$Vehicles.length.ToString(),
+                "VehiclesCount": (_x$Vehicles = x.Vehicles) === null || _x$Vehicles === void 0 ? void 0 : _x$Vehicles.length,
                 "VehiclesFull": x.Vehicles
               };
             });
