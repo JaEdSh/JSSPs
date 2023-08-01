@@ -156,7 +156,8 @@
             if (xhr.readyState !== 4) return;
             if (xhr.status !== 200) throw new Error("Failed with status " + xhr.status);
             var obj = JSON.parse(xhr.responseText);
-            var objData = obj.map(x => {
+            var objZero = obj[0];
+            var objData = objZero.map(x => {
               return {
                 "AccountID": x.RequestRecords
               };
