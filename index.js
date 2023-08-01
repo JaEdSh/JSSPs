@@ -153,13 +153,12 @@
 
         xhr.onreadystatechange = function () {
           try {
-            var _zeroObj$TravisData;
+            var _obj$0$TravisData;
 
             if (xhr.readyState !== 4) return;
             if (xhr.status !== 200) throw new Error("Failed with status " + xhr.status);
             var obj = JSON.parse(xhr.responseText);
-            var zeroObj = obj[0];
-            postResult((_zeroObj$TravisData = zeroObj.TravisData) === null || _zeroObj$TravisData === void 0 ? void 0 : _zeroObj$TravisData.map(x => {
+            var objData = (_obj$0$TravisData = obj[0].TravisData) === null || _obj$0$TravisData === void 0 ? void 0 : _obj$0$TravisData.map(x => {
               return {
                 "AccountID": x.AccountID,
                 "OperatorTypeName": x.OperatorTypeName,
@@ -181,16 +180,20 @@
                 "LAXAgreeNumber": x.LAXAgreeNumber,
                 "SuspendedFlag": x.SuspendedFlag
               };
-            }));
+            });
             resolve();
           } catch (e) {
             reject(e);
           }
+
+          postResult(objData);
         };
 
         if (typeof properties["APIKey"] !== "string") throw new Error("properties[\"APIKey\"] is not of type string");
         if (typeof properties["CompanyName"] !== "string") throw new Error("properties[\"CompanyName\"] is not of type string");
         xhr.open("GET", urlValue + encodeURIComponent(properties["CompanyName"]) + "?apikey=" + encodeURIComponent(properties["APIKey"]));
+        xhr.setRequestHeader("Accept", "application/json");
+        xhr.setRequestHeader("Content-Type", "application/json");
         xhr.send();
       });
     }
