@@ -163,7 +163,13 @@
                 "OperatorTypeName": x.OperatorTypeName,
                 "OperatorTypeID": x.OperatorTypeID,
                 "ServiceTypeID": x.ServiceTypeID,
-                "OpAuthName": x.OpAuthName
+                "OpAuthName": x.OpAuthName,
+                "OpAuthID": x.OpAuthID,
+                "LegalName": x.LegalName,
+                "OperatoringName": x.OperatoringName,
+                "Address1": x.Address1,
+                "Address2": x.Address2,
+                "City": x.City
               };
             });
             postResult(objData);
