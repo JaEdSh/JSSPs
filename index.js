@@ -177,8 +177,7 @@
                 "LAXAgreeEndDate": x.LAXAgreeEndDate,
                 "OpAuthNumber": x.OpAuthNumber,
                 "LAXAgreeNumber": x.LAXAgreeNumber,
-                "SuspendedFlag": x.SuspendedFlag,
-                "ContractContactFull": x.ContractContact.toString()
+                "SuspendedFlag": x.SuspendedFlag
               };
             });
             postResult(objData);
