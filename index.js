@@ -163,21 +163,7 @@
                 "OperatorTypeName": x.OperatorTypeName,
                 "OperatorTypeID": x.OperatorTypeID,
                 "ServiceTypeID": x.ServiceTypeID,
-                "OpAuthName": x.OpAuthName,
-                "OpAuthID": x.OpAuthID,
-                "LegalName": x.LegalName,
-                "OperatoringName": x.OperatoringName,
-                "Address1": x.Address1,
-                "Address2": x.Address2,
-                "City": x.City,
-                "State": x.State,
-                "Zip": x.Zip,
-                "Phone1": x.Phone1,
-                "EmailAddress": x.EmailAddress,
-                "LAXAgreeEndDate": x.LAXAgreeEndDate,
-                "OpAuthNumber": x.OpAuthNumber,
-                "LAXAgreeNumber": x.LAXAgreeNumber,
-                "SuspendedFlag": x.SuspendedFlag
+                "OpAuthName": x.OpAuthName
               };
             });
             postResult(objData);
