@@ -153,12 +153,13 @@
 
         xhr.onreadystatechange = function () {
           try {
-            var _obj$0$TravisData;
+            var _zeroObj$TravisData;
 
             if (xhr.readyState !== 4) return;
             if (xhr.status !== 200) throw new Error("Failed with status " + xhr.status);
             var obj = JSON.parse(xhr.responseText);
-            postResult((_obj$0$TravisData = obj[0].TravisData) === null || _obj$0$TravisData === void 0 ? void 0 : _obj$0$TravisData.map(x => {
+            var zeroObj = obj[0];
+            postResult((_zeroObj$TravisData = zeroObj.TravisData) === null || _zeroObj$TravisData === void 0 ? void 0 : _zeroObj$TravisData.map(x => {
               return {
                 "AccountID": x.AccountID,
                 "OperatorTypeName": x.OperatorTypeName,
