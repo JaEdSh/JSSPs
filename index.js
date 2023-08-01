@@ -174,7 +174,10 @@
                 "Zip": x.Zip,
                 "Phone1": x.Phone1,
                 "EmailAddress": x.EmailAddress,
-                "LAXAgreeEndDate": x.LAXAgreeEndDate
+                "LAXAgreeEndDate": x.LAXAgreeEndDate,
+                "OpAuthNumber": x.OpAuthNumber,
+                "LAXAgreeNumber": x.LAXAgreeNumber,
+                "SuspendedFlag": x.SuspendedFlag
               };
             });
             postResult(objData);
