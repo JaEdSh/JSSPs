@@ -176,8 +176,7 @@
                 "EmailAddress": x.EmailAddress,
                 "LAXAgreeEndDate": x.LAXAgreeEndDate,
                 "OpAuthNumber": x.OpAuthNumber,
-                "LAXAgreeNumber": x.LAXAgreeNumber,
-                "SuspendedFlag": x.SuspendedFlag
+                "LAXAgreeNumber": x.LAXAgreeNumber
               };
             });
             postResult(objData);
