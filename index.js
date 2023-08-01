@@ -158,7 +158,7 @@
             var obj = JSON.parse(xhr.responseText);
             let objData = [];
             objData = obj[0].TravisData.map(x => {
-              var _x$ContractContact, _x$FinanceContact, _x$PermitContact, _x$Vehicles, _x$Vehicles2;
+              var _x$Vehicles;
 
               return {
                 "AccountID": x.AccountID,
@@ -180,11 +180,11 @@
                 "OpAuthNumber": x.OpAuthNumber,
                 "LAXAgreeNumber": x.LAXAgreeNumber,
                 "SuspendedFlag": x.SuspendedFlag,
-                "ContractContactFull": (_x$ContractContact = x.ContractContact) === null || _x$ContractContact === void 0 ? void 0 : _x$ContractContact.ToString(),
-                "FinanceContactFull": (_x$FinanceContact = x.FinanceContact) === null || _x$FinanceContact === void 0 ? void 0 : _x$FinanceContact.ToString(),
-                "PermitContactFull": (_x$PermitContact = x.PermitContact) === null || _x$PermitContact === void 0 ? void 0 : _x$PermitContact.ToString(),
+                "ContractContactFull": x.ContractContact,
+                "FinanceContactFull": x.FinanceContact,
+                "PermitContactFull": x.PermitContact,
                 "VehiclesCount": (_x$Vehicles = x.Vehicles) === null || _x$Vehicles === void 0 ? void 0 : _x$Vehicles.length.ToString(),
-                "VehiclesFull": (_x$Vehicles2 = x.Vehicles) === null || _x$Vehicles2 === void 0 ? void 0 : _x$Vehicles2.ToString()
+                "VehiclesFull": x.Vehicles
               };
             });
             postResult(objData);
