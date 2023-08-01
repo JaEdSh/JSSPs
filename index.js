@@ -158,8 +158,33 @@
             var obj = JSON.parse(xhr.responseText);
             let objData = [];
             objData = obj[0].TravisData.map(x => {
+              var _x$ContractContact, _x$FinanceContact, _x$PermitContact, _x$Vehicles, _x$Vehicles2;
+
               return {
-                "AccountID": x.AccountID
+                "AccountID": x.AccountID,
+                "OperatorTypeName": x.OperatorTypeName,
+                "OperatorTypeID": x.OperatorTypeID,
+                "ServiceTypeID": x.ServiceTypeID,
+                "OpAuthName": x.OpAuthName,
+                "OpAuthID": x.OpAuthID,
+                "LegalName": x.LegalName,
+                "OperatoringName": x.OperatoringName,
+                "Address1": x.Address1,
+                "Address2": x.Address2,
+                "City": x.City,
+                "State": x.State,
+                "Zip": x.Zip,
+                "Phone1": x.Phone1,
+                "EmailAddress": x.EmailAddress,
+                "LAXAgreeEndDate": x.LAXAgreeEndDate,
+                "OpAuthNumber": x.OpAuthNumber,
+                "LAXAgreeNumber": x.LAXAgreeNumber,
+                "SuspendedFlag": x.SuspendedFlag,
+                "ContractContactFull": (_x$ContractContact = x.ContractContact) === null || _x$ContractContact === void 0 ? void 0 : _x$ContractContact.ToString(),
+                "FinanceContactFull": (_x$FinanceContact = x.FinanceContact) === null || _x$FinanceContact === void 0 ? void 0 : _x$FinanceContact.ToString(),
+                "PermitContactFull": (_x$PermitContact = x.PermitContact) === null || _x$PermitContact === void 0 ? void 0 : _x$PermitContact.ToString(),
+                "VehiclesCount": (_x$Vehicles = x.Vehicles) === null || _x$Vehicles === void 0 ? void 0 : _x$Vehicles.length.ToString(),
+                "VehiclesFull": (_x$Vehicles2 = x.Vehicles) === null || _x$Vehicles2 === void 0 ? void 0 : _x$Vehicles2.ToString()
               };
             });
             postResult(objData);
