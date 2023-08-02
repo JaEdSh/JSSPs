@@ -30,6 +30,14 @@
                 displayName: "Company Name",
                 type: "string"
               },
+              "StartDate": {
+                displayName: "Start Date",
+                type: "string"
+              },
+              "EndDate": {
+                displayName: "End Date",
+                type: "string"
+              },
               "AccountID": {
                 displayName: "Account ID",
                 type: "number"
@@ -109,10 +117,17 @@
             },
             methods: {
               "getListByCompanyName": {
-                displayName: "Get Operator List",
+                displayName: "Get Operator List by company name",
                 type: "list",
                 inputs: ["APIKey", "CompanyName"],
                 requiredInputs: ["APIKey", "CompanyName"],
+                outputs: ["AccountID", "OperatorTypeName", "OperatorTypeID", "ServiceTypeID", "OpAuthName", "OpAuthID", "LegalName", "OperatoringName", "Address1", "Address2", "City", "State", "Zip", "Phone1", "EmailAddress", "LAXAgreeEndDate", "OpAuthNumber", "LAXAgreeNumber", "SuspendedFlag"]
+              },
+              "getListByDateRange": {
+                displayName: "Get Operator List by date range",
+                type: "list",
+                inputs: ["APIKey", "StartDate", "EndDate"],
+                requiredInputs: ["APIKey", "StartDate", "EndDate"],
                 outputs: ["AccountID", "OperatorTypeName", "OperatorTypeID", "ServiceTypeID", "OpAuthName", "OpAuthID", "LegalName", "OperatoringName", "Address1", "Address2", "City", "State", "Zip", "Phone1", "EmailAddress", "LAXAgreeEndDate", "OpAuthNumber", "LAXAgreeNumber", "SuspendedFlag"]
               }
             }
@@ -142,6 +157,10 @@
       switch (methodName) {
         case "getListByCompanyName":
           await onexecuteOperatorsGetListByCompanyName(parameters, properties, configuration);
+          break;
+
+        case "getListByDateRange":
+          await onexecuteOperatorsGetListByDateRange(parameters, properties, configuration);
           break;
       }
     }
@@ -189,6 +208,56 @@
         if (typeof properties["APIKey"] !== "string") throw new Error("properties[\"APIKey\"] is not of type string");
         if (typeof properties["CompanyName"] !== "string") throw new Error("properties[\"CompanyName\"] is not of type string");
         xhr.open("GET", urlValue + encodeURIComponent(properties["CompanyName"]) + "?apikey=" + encodeURIComponent(properties["APIKey"]));
+        xhr.setRequestHeader("Accept", "application/json");
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.send();
+      });
+    }
+
+    function onexecuteOperatorsGetListByDateRange(parameters, properties, configuration) {
+      return new Promise((resolve, reject) => {
+        var urlValue = configuration["ServiceURL"] + 'PermitDates/';
+        var xhr = new XMLHttpRequest();
+
+        xhr.onreadystatechange = function () {
+          try {
+            if (xhr.readyState !== 4) return;
+            if (xhr.status !== 200) throw new Error("Failed with status " + xhr.status);
+            var obj = JSON.parse(xhr.responseText);
+            let objData = [];
+            objData = obj[0].TravisData.map(x => {
+              return {
+                "AccountID": x.AccountID,
+                "OperatorTypeName": x.OperatorTypeName,
+                "OperatorTypeID": x.OperatorTypeID,
+                "ServiceTypeID": x.ServiceTypeID,
+                "OpAuthName": x.OpAuthName,
+                "OpAuthID": x.OpAuthID,
+                "LegalName": x.LegalName,
+                "OperatoringName": x.OperatingName,
+                "Address1": x.Address1,
+                "Address2": x.Address2,
+                "City": x.City,
+                "State": x.State,
+                "Zip": x.Zip,
+                "Phone1": x.Phone1,
+                "EmailAddress": x.EmailAddress,
+                "LAXAgreeEndDate": x.LAXAgreeEndDate,
+                "OpAuthNumber": x.OpAuthNumber,
+                "LAXAgreeNumber": x.LAXAgreeNumber
+              };
+            });
+            postResult(objData);
+            resolve();
+          } catch (e) {
+            reject(e);
+          }
+        };
+
+        if (typeof properties["APIKey"] !== "string") throw new Error("properties[\"APIKey\"] is not of type string");
+        if (typeof properties["StartDate"] !== "string") throw new Error("properties[\"StartDate\"] is not of type string");
+        if (typeof properties["EndDate"] !== "string") throw new Error("properties[\"EndDate\"] is not of type string");
+        xhr.open("GET", urlValue + encodeURIComponent(properties["StartDate"]) + '/' + encodeURIComponent(properties["EndDate"]) + "?apikey=" + encodeURIComponent(properties["APIKey"]));
         xhr.setRequestHeader("Accept", "application/json");
         xhr.setRequestHeader("Content-Type", "application/json");
         xhr.send();
