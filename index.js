@@ -117,14 +117,14 @@
             },
             methods: {
               "getListByCompanyName": {
-                displayName: "Get Operator List by company name",
+                displayName: "GetOperatorsByCompanyName",
                 type: "list",
                 inputs: ["APIKey", "CompanyName"],
                 requiredInputs: ["APIKey", "CompanyName"],
                 outputs: ["AccountID", "OperatorTypeName", "OperatorTypeID", "ServiceTypeID", "OpAuthName", "OpAuthID", "LegalName", "OperatoringName", "Address1", "Address2", "City", "State", "Zip", "Phone1", "EmailAddress", "LAXAgreeEndDate", "OpAuthNumber", "LAXAgreeNumber", "SuspendedFlag"]
               },
               "getListByDateRange": {
-                displayName: "Get Operator List by date range",
+                displayName: "GetOperatorsByDateRange",
                 type: "list",
                 inputs: ["APIKey", "StartDate", "EndDate"],
                 requiredInputs: ["APIKey", "StartDate", "EndDate"],
