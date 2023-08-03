@@ -318,9 +318,9 @@
           }
         };
 
-        if (typeof properties["LAXAgreeEndDate"] !== "string") throw new Error("properties[\"LAXAgreeEndDate\"] is not of type string");
+        if (typeof properties["LAXAgreeNumber"] !== "string") throw new Error("properties[\"LAXAgreeNumber\"] is not of type string");
         if (typeof properties["APIKey"] !== "string") throw new Error("properties[\"APIKey\"] is not of type string");
-        xhr.open("GET", urlValue + encodeURIComponent(properties["LAXAgreeEndDate"]) + "?apikey=" + encodeURIComponent(properties["APIKey"]));
+        xhr.open("GET", urlValue + encodeURIComponent(properties["LAXAgreeNumber"]) + "?apikey=" + encodeURIComponent(properties["APIKey"]));
         xhr.setRequestHeader("Accept", "application/json");
         xhr.setRequestHeader("Content-Type", "application/json");
         xhr.send();
