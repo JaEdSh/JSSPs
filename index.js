@@ -131,7 +131,7 @@
                 outputs: ["AccountID", "OperatorTypeName", "OperatorTypeID", "ServiceTypeID", "OpAuthName", "OpAuthID", "LegalName", "OperatoringName", "Address1", "Address2", "City", "State", "Zip", "Phone1", "EmailAddress", "LAXAgreeEndDate", "OpAuthNumber", "LAXAgreeNumber", "SuspendedFlag"]
               },
               "getListByLSONumber": {
-                displayName: "GetOperatorsByLSONumber",
+                displayName: "GetOperatorsByLSO",
                 type: "list",
                 inputs: ["APIKey", "LAXAgreeNumber"],
                 requiredInputs: ["APIKey", "LAXAgreeNumber"],
