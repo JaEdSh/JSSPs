@@ -280,7 +280,7 @@
 
     function onexecuteOperatorsGetListByLSONumber(parameters, properties, configuration) {
       return new Promise((resolve, reject) => {
-        var urlValue = configuration["ServiceURL"] + 'Ian/';
+        var urlValue = configuration["ServiceURL"] + 'lan/';
         var xhr = new XMLHttpRequest();
 
         xhr.onreadystatechange = function () {
@@ -322,7 +322,6 @@
         if (typeof properties["APIKey"] !== "string") throw new Error("properties[\"APIKey\"] is not of type string");
         xhr.open("GET", urlValue + encodeURIComponent(properties["LAXAgreeNumber"]) + "?apikey=" + encodeURIComponent(properties["APIKey"]));
         xhr.setRequestHeader("Accept", "application/json");
-        xhr.setRequestHeader("Content-Type", "application/json");
         xhr.send();
       });
     }
